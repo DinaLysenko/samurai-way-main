@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import {Navbar} from "../layout/navbar/Navbar";
-import {Profile} from "../layout/profile/Profile";
 import {Header} from "../layout/header/Header";
-
+import {Profile} from "../components/Profile";
+import {Dialogs} from "../components/dialogs/Dialogs";
 
 
 function App() {
@@ -11,7 +11,12 @@ function App() {
         <div className={'app-wrapper'}>
             <Header/>
             <Navbar/>
-            <Profile/>
+            <div className={'app-wrapper-content'}>
+                <Dialogs/>
+            </div>
+
+
+            {/*<Profile/>*/}
         </div>
     );
 }

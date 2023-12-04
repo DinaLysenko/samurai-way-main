@@ -1,6 +1,8 @@
 import React from 'react';
 import {Post} from "../post/Post";
 
+
+
 export const MyPost = () => {
     return (
         <div>My Posts
