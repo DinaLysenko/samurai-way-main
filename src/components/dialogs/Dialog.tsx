@@ -1,14 +1,20 @@
 import React from 'react';
 import s from "./Dialogs.module.css";
 import {NavLink} from "react-router-dom";
+import {DialogsType} from "../../data/dialogsState";
 
-type DialogProps={
-    name: string
-    id: number
+type DialogPropsType={
+    dialogs: DialogsType[]
 }
-export const Dialog:React.FC<DialogProps> = ({name, id}) => {
-    return (
-            <div className={`${s.dialog} ${s.active}`}><NavLink to={'/dialogs/' + id}>{name}</NavLink></div>
-    );
+export const Dialog:React.FC<DialogPropsType> = ({dialogs}) => {
+   return (
+       <div>
+           {dialogs.map(d=>{
+               return (
+                   <div className={`${s.dialog} ${s.active}`}><NavLink to={'/dialogs/' + d.id}>{d.name}</NavLink></div>
+               )
+           } )}
+       </div>
+   )
 };
 

@@ -11,7 +11,7 @@ export const Post:React.FC<PostType> = (props) => {
         <div className={s.post}>
             <div className={s.item}>
                 <img src="https://imgv3.fotor.com/images/gallery/watercolor-female-avatar.jpg"/>
-                {message}
+                <span>{message}</span>
             </div>
             <div>
                 <span>Like {likeCount}</span>

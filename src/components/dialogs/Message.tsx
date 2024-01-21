@@ -1,12 +1,19 @@
 import React from 'react';
 import s from "./Dialogs.module.css";
+import {MessageType} from "../../data/dialogsState";
 
-type MessageProps={
-    message: string
+type MessageProps = {
+    message: MessageType[]
 }
-export const Message:React.FC<MessageProps> = ({message}) => {
+export const Message: React.FC<MessageProps> = ({message}) => {
     return (
-        <div className={s.message}>{message}</div>
+        <div>
+            {message.map(m => {
+                return (
+                    <div className={s.message}>{m.message}</div>
+                )
+            })}
+        </div>
     );
 };
 

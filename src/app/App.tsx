@@ -24,9 +24,6 @@ function App() {
                 {/*<Profile/>*/}
                 {/*<Dialogs/>*/}
             </div>
-
-
-
         </div>
     );
 }

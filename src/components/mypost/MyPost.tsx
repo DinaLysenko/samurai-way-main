@@ -1,7 +1,7 @@
 import React from 'react';
 import {Post} from "../post/Post";
 import s from './MyPost.module.css'
-
+import {postData} from "../../data/postData";
 
 
 export const MyPost = () => {
@@ -16,9 +16,11 @@ export const MyPost = () => {
                     <button>Add post</button>
                 </div>
             </div>
-            <Post  message={'Hi, how are you?'} likeCount={15}/>
-            <Post message={"It's my first post"} likeCount={8}/>
-            <Post message={'I learn Reakt'} likeCount={30}/>
+            {postData.post.map(p => {
+                return (
+                    <Post message={p.message} likeCount={p.likeCount}/>
+                )
+            })}
         </div>
     );
 };
