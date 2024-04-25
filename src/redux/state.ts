@@ -1,7 +1,7 @@
-import {v1} from "uuid";
+import {v1} from 'uuid';
 import {rerender} from '../rerender';
 
-export const state:StateType = {
+export const state: StateType = {
     profile: {
         posts: [
             {id: v1(), message: 'Hi, how are you?', likeCount: 15},
@@ -33,7 +33,7 @@ export const state:StateType = {
                 name: 'Sandra'
             },
         ],
-        message:[
+        message: [
             {id: v1(), message: 'Hi'},
             {id: v1(), message: 'YO'},
             {id: v1(), message: 'Bye'},
@@ -42,29 +42,28 @@ export const state:StateType = {
         ]
     }
 }
-export const addPost=(text:string)=>{
-    let newPost={id: v1(), message: text, likeCount: 0}
+export const addPost = () => {
+    let newPost = {id: v1(), message: state.profile.newPostText, likeCount: 0}
     state.profile.posts.push(newPost)
     rerender(state)
 }
-console.log(state.profile.posts)
-export const updatePostText=(newPost:string)=>{
-    state.profile.newPostText=newPost
-    console.log(state.profile.newPostText)
+export const updatePostText = (newPost: string) => {
+    state.profile.newPostText = newPost
+    rerender(state)
 }
-export type StateType ={
+export type StateType = {
     profile: PostDataState
     messages: MessagesType
 }
-export type MessagesType={
+export type MessagesType = {
     dialogs: DialogsType[]
     message: MessageType[]
 }
-export type DialogsType ={
+export type DialogsType = {
     name: string
     id: string
 }
-export type MessageType={
+export type MessageType = {
     message: string
     id: string
 }

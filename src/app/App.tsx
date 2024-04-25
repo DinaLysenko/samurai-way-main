@@ -12,7 +12,7 @@ import {StateType, updatePostText} from '../redux/state';
 
 type State={
     state: StateType
-    addPost:(text: string)=>void
+    addPost:()=>void
     updatePostText: (newPost: string)=>void
 }
 function App(props: State) {

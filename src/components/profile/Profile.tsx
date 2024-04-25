@@ -5,7 +5,7 @@ import {StateType, updatePostText} from '../../redux/state';
 
 type ProfileType={
     state: StateType
-    addPost: (text: string)=>void
+    addPost: ()=>void
     updatePostText:(newPost: string)=>void
 }
 

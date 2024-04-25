@@ -1,26 +1,23 @@
 import React, {ChangeEvent, MouseEventHandler, useRef} from 'react';
 import s from './MyPost.module.css'
-import {Post} from "./post/Post";
+import {Post} from './post/Post';
 import {StateType, updatePostText} from '../../../redux/state';
 
 
-type MyPostType={
+type MyPostType = {
     state: StateType
-    addPost: (text: string)=>void
-    updatePostText: (newPostText: string)=>void
+    addPost: () => void
+    updatePostText: (newPostText: string) => void
 }
 
-export const MyPost = ({state,addPost}:MyPostType) => {
-    const newPost=useRef<HTMLTextAreaElement>(null)
-    const onChangeHandler=(e: ChangeEvent<HTMLTextAreaElement>)=>{
-        state.profile.newPostText=''
-        let newPost=e.currentTarget.value
-       updatePostText(newPost)
+export const MyPost = ({state, addPost}: MyPostType) => {
+    const newPost = useRef<HTMLTextAreaElement>(null)
+    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        let newPost = e.currentTarget.value
+        updatePostText(newPost)
     }
-    const onClickHandler=(e:any)=>{
-        let text=e.currentTarget.value
-       addPost(text)
-
+    const onClickHandler = () => {
+            addPost()
     }
 
     return (
@@ -28,7 +25,7 @@ export const MyPost = ({state,addPost}:MyPostType) => {
             <h3>My Posts</h3>
             <div>
                 <div>
-                    <textarea ref={newPost} value={state.profile.newPostText} onChange={onChangeHandler}></textarea>
+                    <textarea ref={newPost} value={state.profile.newPostText} onChange={onChangeHandler}/>
                 </div>
                 <div>
                     <button onClick={onClickHandler}>Add post</button>
