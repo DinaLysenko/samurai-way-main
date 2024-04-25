@@ -1,6 +1,6 @@
 import React from 'react';
 import s from "./Dialogs.module.css";
-import {MessageType} from "../../data/dialogsState";
+import {MessageType} from "../../redux/state";
 
 type MessageProps = {
     message: MessageType[]
@@ -10,7 +10,7 @@ export const Message: React.FC<MessageProps> = ({message}) => {
         <div>
             {message.map(m => {
                 return (
-                    <div className={s.message}>{m.message}</div>
+                    <div key={m.id} className={s.message}>{m.message}</div>
                 )
             })}
         </div>
