@@ -1,5 +1,5 @@
 import {v1} from 'uuid';
-import {rerender} from '../rerender';
+
 
 export const state: StateType = {
     profile: {
@@ -14,58 +14,73 @@ export const state: StateType = {
         dialogs: [
             {
                 id: v1(),
-                name: 'Mike'
+                name: 'Mike',
+                userMessage: [
+                    {id: v1(), message: 'Hi'},
+                ]
             },
             {
                 id: v1(),
                 name: 'James',
+                userMessage: [
+                    {id: v1(), message: 'YO'},
+                ]
             },
             {
                 id: v1(),
-                name: 'Maria'
+                name: 'Maria',
+                userMessage: [
+                    {id: v1(), message: 'Bye'},
+                ]
             },
             {
                 id: v1(),
-                name: 'Margo'
+                name: 'Margo',
+                userMessage: [
+                    {id: v1(), message: 'Hello'},
+                ]
             },
             {
                 id: v1(),
-                name: 'Sandra'
+                name: 'Sandra',
+                userMessage: [
+                    {id: v1(), message: 'Yo'}
+                ]
             },
-        ],
-        message: [
-            {id: v1(), message: 'Hi'},
-            {id: v1(), message: 'YO'},
-            {id: v1(), message: 'Bye'},
-            {id: v1(), message: 'Hello'},
-            {id: v1(), message: 'Yo'},
         ]
     }
 }
 export const addPost = () => {
     let newPost = {id: v1(), message: state.profile.newPostText, likeCount: 0}
     state.profile.posts.push(newPost)
-    rerender(state)
+    notifySubscriber()
 }
 export const updatePostText = (newPost: string) => {
     state.profile.newPostText = newPost
-    rerender(state)
+    notifySubscriber()
 }
+let notifySubscriber=()=>{}
+ export function subscriber(callback:()=>void){
+    notifySubscriber=callback
+ }
+
+
 export type StateType = {
     profile: PostDataState
     messages: MessagesType
 }
 export type MessagesType = {
-    dialogs: DialogsType[]
-    message: MessageType[]
+    dialogs: MessageType[]
 }
-export type DialogsType = {
-    name: string
-    id: string
-}
+
 export type MessageType = {
+    id: string,
+    name: string,
+    userMessage: UserMessageType[]
+}
+export type UserMessageType={
+    id: string,
     message: string
-    id: string
 }
 export type PostDataState = {
     posts: PostType[]

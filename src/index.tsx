@@ -1,5 +1,17 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './index.css';
-import {state} from './redux/state';
-import {rerender} from './rerender';
+import App from './app/App';
+import {BrowserRouter} from "react-router-dom";
+import {addPost, state, StateType, subscriber, updatePostText} from './redux/state';
+export function rerender(){
+    ReactDOM.render(
+        <BrowserRouter>
+            <App state={state} addPost={addPost} updatePostText={updatePostText}/>
+        </BrowserRouter>,
 
-rerender(state)
+        document.getElementById('root')
+    );}
+
+rerender()
+subscriber(rerender)

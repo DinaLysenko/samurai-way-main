@@ -10,7 +10,7 @@ export const Message: React.FC<MessageProps> = ({message}) => {
         <div>
             {message.map(m => {
                 return (
-                    <div key={m.id} className={s.message}>{m.message}</div>
+                    <div key={m.id} className={s.message}>{m.userMessage.map(u=>u.message)}</div>
                 )
             })}
         </div>

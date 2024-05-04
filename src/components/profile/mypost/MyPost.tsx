@@ -11,13 +11,16 @@ type MyPostType = {
 }
 
 export const MyPost = ({state, addPost}: MyPostType) => {
-    const newPost = useRef<HTMLTextAreaElement>(null)
+    let newPost = useRef<HTMLTextAreaElement>(null)
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let newPost = e.currentTarget.value
         updatePostText(newPost)
+
     }
     const onClickHandler = () => {
-            addPost()
+        addPost()
+        updatePostText('')
+
     }
 
     return (

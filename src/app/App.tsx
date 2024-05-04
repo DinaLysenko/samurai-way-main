@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import {Navbar} from "../layout/navbar/Navbar";
 import {Header} from "../layout/header/Header";
@@ -8,7 +7,7 @@ import {News} from "../components/news/News";
 import {Music} from "../components/music/Music";
 import {Settings} from "../components/settings/Settings";
 import {Profile} from "../components/profile/Profile";
-import {StateType, updatePostText} from '../redux/state';
+import {StateType} from '../redux/state';
 
 type State={
     state: StateType

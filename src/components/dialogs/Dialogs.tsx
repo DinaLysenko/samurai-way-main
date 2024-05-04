@@ -15,7 +15,7 @@ export const Dialogs:React.FC<DialogsType> = ({state}) => {
                   <Dialog dialogs={state.messages.dialogs}/>
               </div>
                 <div className="messages">
-                    <Message message={state.messages.message}/>
+                    <Message message={state.messages.dialogs}/>
                 </div>
             </div>
         </div>
