@@ -12,10 +12,10 @@ export const Dialogs:React.FC<DialogsType> = ({state}) => {
         <div>
             <div className={s.dialogs}>
               <div className={s.dialogsItem}>
-                  <Dialog dialogs={state.messages.dialogs}/>
+                  <Dialog dialogs={state.dialogs}/>
               </div>
                 <div className="messages">
-                    <Message message={state.messages.dialogs}/>
+                    <Message message={state.dialogs}/>
                 </div>
             </div>
         </div>

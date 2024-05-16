@@ -1,7 +1,7 @@
 import s from './Profile.module.css'
 import {ProfileInfo} from "./profileInfo/ProfileInfo";
 import {MyPost} from "./mypost/MyPost";
-import {StateType, updatePostText} from '../../redux/state';
+import {StateType,} from '../../redux/state';
 
 type ProfileType={
     state: StateType
@@ -9,7 +9,7 @@ type ProfileType={
     updatePostText:(newPost: string)=>void
 }
 
-export const Profile = ({state, addPost}:ProfileType) => {
+export const Profile = ({state, addPost, updatePostText}:ProfileType) => {
     return (
         <div className={s.content}>
             <ProfileInfo/>

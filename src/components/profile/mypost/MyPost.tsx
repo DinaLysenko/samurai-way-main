@@ -1,7 +1,7 @@
 import React, {ChangeEvent, MouseEventHandler, useRef} from 'react';
 import s from './MyPost.module.css'
 import {Post} from './post/Post';
-import {StateType, updatePostText} from '../../../redux/state';
+import {StateType} from '../../../redux/state';
 
 
 type MyPostType = {
@@ -10,7 +10,7 @@ type MyPostType = {
     updatePostText: (newPostText: string) => void
 }
 
-export const MyPost = ({state, addPost}: MyPostType) => {
+export const MyPost = ({state, addPost, updatePostText}: MyPostType) => {
     let newPost = useRef<HTMLTextAreaElement>(null)
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let newPost = e.currentTarget.value
